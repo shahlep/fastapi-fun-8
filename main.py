@@ -10,9 +10,7 @@ def create_tables():
 
 
 def start_application():
-    app = FastAPI(
-        title=settings.PROJECT_TITLE,
-        version=settings.PROJECT_VERSION)
+    app = FastAPI(title=settings.PROJECT_TITLE, version=settings.PROJECT_VERSION)
     create_tables()
     return app
 
