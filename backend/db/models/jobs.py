@@ -14,6 +14,8 @@ class Job(Base):
     company_url = Column(String)
     location = Column(String, nullable=False)
     date_posted = Column(datetime.date)
-    is_active = Column(Boolean,default=False)
+    is_active = Column(Boolean, default=False)
     # foreign key
+    # owner_id = Column(Integer, ForeignKey('user.id'))
     # relationship
+    #owner = relationship('User',back_populates='jobs')
