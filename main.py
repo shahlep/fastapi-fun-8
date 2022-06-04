@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from backend.core.config import settings
 from backend.db.session import engine
 from backend.db.base import Base
+from backend.apis.version1.routes_user import router
 
 
 def create_tables():
@@ -12,6 +13,7 @@ def create_tables():
 def start_application():
     app = FastAPI(title=settings.PROJECT_TITLE, version=settings.PROJECT_VERSION)
     create_tables()
+    app.include_router(router)
     return app
 
 
