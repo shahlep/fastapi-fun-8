@@ -4,9 +4,9 @@ from datetime import date, datetime
 
 
 class JobsBase(BaseModel):
-    title: str
-    description: str
-    company: str
-    company_url: Optional[str]
-    location: Optional[str]
-    date_posted: datetime.now().date()
+    title: Optional[str] = None
+    description: Optional[str] = None
+    company: Optional[str] = None
+    company_url: Optional[str] = None
+    location: Optional[str] = None
+    date_posted: Optional[str] = datetime.now().date()
