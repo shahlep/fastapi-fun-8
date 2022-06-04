@@ -17,3 +17,15 @@ class JobCreate(JobsBase):
     description: str
     company: str
     location: str
+
+
+class ShowJobs(JobsBase):
+    title: str
+    company: str
+    location: str
+    date_posted: date
+    description: Optional[str]
+    company_url: Optional[str]
+
+    class Config:
+        orm_mode = True
