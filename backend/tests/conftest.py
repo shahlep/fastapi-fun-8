@@ -1,14 +1,20 @@
 from typing import Any
 from typing import Generator
-
+import backend.db.base
 import pytest
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from backend.db.base import Base
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# this is to include backend dir in sys.path so that we can import from db,main.py
+
 from backend.db.session import get_db
+from backend.db.base import Base
 from backend.apis.base import api_router
 
 
@@ -18,8 +24,10 @@ def start_application():
     return app
 
 
-SQLALCHEMY_DATABASE_URL = "sqlite:///./db_fun.db"
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
+SQLALCHEMY_DATABASE_URL = "sqlite:///./test_db.db"
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
+)
 # Use connect_args parameter only with sqlite
 SessionTesting = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
@@ -48,7 +56,7 @@ def db_session(app: FastAPI) -> Generator[SessionTesting, Any, None]:
 
 @pytest.fixture(scope="function")
 def client(
-    app: FastAPI, db_session: SessionTesting
+        app: FastAPI, db_session: SessionTesting
 ) -> Generator[TestClient, Any, None]:
     """
     Create a new FastAPI TestClient that uses the `db_session` fixture to override
