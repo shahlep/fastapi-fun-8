@@ -9,7 +9,7 @@ class JobsBase(BaseModel):
     company: Optional[str] = None
     company_url: Optional[str] = None
     location: Optional[str] = None
-    date_posted: Optional[str] = datetime.now().date()
+    date_posted: Optional[date] = datetime.now().date()
 
 
 class JobCreate(JobsBase):
