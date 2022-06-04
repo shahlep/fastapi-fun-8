@@ -5,10 +5,10 @@ from backend.core.config import settings
 from typing import Generator
 
 # Postgress
-#SQLALCHEMY_DATABASE_URL = settings.DATABASE_URL
-#engine = create_engine(SQLALCHEMY_DATABASE_URL)
+# SQLALCHEMY_DATABASE_URL = settings.DATABASE_URL
+# engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
-#SQLITE
+# SQLITE
 SQLALCHEMY_DATABASE_URL = "sqlite:///./test_db.db"
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
