@@ -5,3 +5,4 @@ __pycache__
 test_main.http
 env
 .env
+test_db.db
