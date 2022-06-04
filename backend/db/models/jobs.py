@@ -16,6 +16,6 @@ class Job(Base):
     date_posted = Column(Date)
     is_active = Column(Boolean, default=False)
     # foreign key
-    owner_id = Column(Integer, ForeignKey('user.id'))
+    owner_id = Column(Integer, ForeignKey("user.id"))
     # relationship
-    owner = relationship('User',back_populates='jobs')
+    owner = relationship("User", back_populates="jobs")
