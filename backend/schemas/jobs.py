@@ -10,3 +10,10 @@ class JobsBase(BaseModel):
     company_url: Optional[str] = None
     location: Optional[str] = None
     date_posted: Optional[str] = datetime.now().date()
+
+
+class JobCreate(JobsBase):
+    title: str
+    description: str
+    company: str
+    location: str
