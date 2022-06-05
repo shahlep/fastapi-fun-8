@@ -11,11 +11,7 @@
 </head>
 
 <body>
-    {% include 'components/navbar.html' %}
 
-    {% with msg=msg %}
-      {% include "components/alerts.html" %}
-    {% endwith %}
 
     {% block content %}
     {% endblock %}
