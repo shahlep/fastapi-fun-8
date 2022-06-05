@@ -22,7 +22,7 @@ client = TestClient(router)
 
 def test_create_user():
     data = {"username": "test", "email": "test@example.com", "password": "123456"}
-    response = client.post("/user", json.dump(data,fp=str))
+    response = client.post("/user", json.dump(data, fp=str))
     assert response.status_code == 200
     assert response.json()["email"] == "test@example.com"
     assert response.json()["is_active"] == True
