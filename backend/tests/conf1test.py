@@ -1,6 +1,6 @@
 from typing import Any
 from typing import Generator
-import backend.db.base
+
 import pytest
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
@@ -9,13 +9,12 @@ from sqlalchemy.orm import sessionmaker
 
 import sys
 import os
-
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-# this is to include backend dir in sys.path so that we can import from db,main.py
+#this is to include backend dir in sys.path so that we can import from db,main.py
 
-from backend.db.session import get_db
-from backend.db.base import Base
-from backend.apis.base import api_router
+from ..db.base import Base
+from ..db.session import get_db
+from ..apis.base import api_router
 
 
 def start_application():
