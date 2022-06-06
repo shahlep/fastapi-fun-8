@@ -22,7 +22,7 @@ def configure_static(app):
 
 
 def start_application():
-    app = FastAPI(title=settings.PROJECT_TITLE, version=settings.PROJECT_VERSION)
+    app = FastAPI(title=settings.PROJECT_TITLE, version=settings.PROJECT_VERSION,openapi_url=settings.API_JSON_VERSION)
     create_tables()
     include_router(app)
     configure_static(app)

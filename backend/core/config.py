@@ -9,6 +9,7 @@ load_dotenv(dotenv_path=env_path)
 class Settings:
     PROJECT_TITLE: str = "Jobboard"
     PROJECT_VERSION: str = "0.1.1"
+    API_JSON_VERSION: str = "/api/v1/openapi.json"
 
     POSTGRESS_USER: str = os.getenv("POSTGRESS_USER")
     POSTGRESS_PASSWORD: str = os.getenv("POSTGRESS_PASSWORD")
