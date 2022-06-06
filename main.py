@@ -26,6 +26,7 @@ def start_application():
         title=settings.PROJECT_TITLE,
         version=settings.PROJECT_VERSION,
         openapi_url=settings.API_JSON_VERSION,
+        description=settings.PROJECT_DESCRIPTION,
     )
     create_tables()
     include_router(app)
